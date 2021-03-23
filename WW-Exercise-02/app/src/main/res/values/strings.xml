@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">WW-Exercise-02</string>
+
+    <string name="title_activity_main">Contact List</string>
+    <string name="title_activity_contact">Contact Editor</string>
+</resources>
