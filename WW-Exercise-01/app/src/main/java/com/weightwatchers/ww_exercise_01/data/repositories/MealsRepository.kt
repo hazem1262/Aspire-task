@@ -11,7 +11,7 @@ class MealsRepository(
 ): BaseRepository(contextProviders) {
     suspend fun getMeals():List<Meal>?{
         return launchBlock{
-            return@launchBlock mealsService.getAlbums()
+            return@launchBlock mealsService.getMeals()
         }
     }
 }

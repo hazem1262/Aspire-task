@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface MealsService {
     @GET(MEALS)
-    suspend fun getAlbums(): Response<List<Meal>>
+    suspend fun getMeals(): Response<List<Meal>>
 }
