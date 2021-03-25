@@ -1,6 +1,7 @@
 package com.weightwatchers.ww_exercise_01.ui.main.meal
 
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView.Adapter.StateRestorationPolicy
 import com.google.android.material.snackbar.Snackbar
 import com.weightwatchers.ww_exercise_01.R
 import com.weightwatchers.ww_exercise_01.base.BaseFragment
@@ -19,6 +20,11 @@ class MealsFragment(
 
     override fun setup() {
         binding.vm = viewModel
+        /*
+        * save recycler view state while configuration change(change orientation)
+        * https://medium.com/androiddevelopers/restore-recyclerview-scroll-position-a8fbdc9a9334
+        * */
+        adapter.stateRestorationPolicy = StateRestorationPolicy.PREVENT_WHEN_EMPTY
         mealsRecyclerView.adapter = adapter
         viewModel.getMeals()
     }

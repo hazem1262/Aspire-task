@@ -16,7 +16,6 @@ class MealsViewModel(
 
     fun getMeals(){
         launchBlock{
-            // use data binding to send albums to adapter
             val meals = mealsRepository.getMeals()
             mealsLiveData.postValue(meals)
             internalState.postValue(
