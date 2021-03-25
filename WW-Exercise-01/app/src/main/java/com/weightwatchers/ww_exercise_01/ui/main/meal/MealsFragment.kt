@@ -45,6 +45,6 @@ class MealsFragment(
     }
 
     private fun selectMeal(meal: Meal){
-        Snackbar.make(mealsContainer, meal.filter?:"", Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(mealsContainer, meal.getFormattedTags(), Snackbar.LENGTH_SHORT).show()
     }
 }
