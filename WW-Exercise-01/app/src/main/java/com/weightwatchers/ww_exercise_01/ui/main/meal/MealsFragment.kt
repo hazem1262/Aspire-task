@@ -1,29 +1,41 @@
 package com.weightwatchers.ww_exercise_01.ui.main.meal
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.weightwatchers.ww_exercise_01.R
+import com.weightwatchers.ww_exercise_01.base.BaseFragment
+import com.weightwatchers.ww_exercise_01.base.ViewState
+import com.weightwatchers.ww_exercise_01.databinding.MealsFragmentBinding
+import kotlinx.android.synthetic.main.meals_fragment.*
 
-class MealsFragment : Fragment() {
+class MealsFragment(
+        override val viewModel: MealsViewModel
+        ) : BaseFragment<MealsFragmentBinding,MealsViewModel>() {
 
-    companion object {
-        fun newInstance() = MealsFragment()
-    }
-
-    private lateinit var viewModel: MealsViewModel
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.meals_fragment, container, false)
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MealsViewModel::class.java)
+    }
+
+    override fun getLayoutId(): Int = R.layout.meals_fragment
+
+    override fun setup() {
+        viewModel.getMeals()
+    }
+
+    override fun render(state: ViewState) {
+        when(state){
+            ViewState.Empty -> handleEmptyView()
+            is MealsViewState.Loaded -> handleLoadedState()
+        }
+    }
+
+    private fun handleLoadedState() {
+        noMealsMsgTV.visibility = View.GONE
+    }
+
+    private fun handleEmptyView() {
+        noMealsMsgTV.visibility = View.VISIBLE
     }
 
 }

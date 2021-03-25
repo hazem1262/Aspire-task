@@ -21,7 +21,8 @@ class AppInstance: Application() {
                             repositoryModule,
                             retrofitModule,
                             apiModule,
-                            fragmentModule
+                            fragmentModule,
+                            viewModelModule
                     )
             )
         }

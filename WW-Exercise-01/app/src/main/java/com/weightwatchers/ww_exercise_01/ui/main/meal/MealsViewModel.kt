@@ -1,7 +1,27 @@
 package com.weightwatchers.ww_exercise_01.ui.main.meal
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import com.weightwatchers.ww_exercise_01.base.BaseViewModel
+import com.weightwatchers.ww_exercise_01.base.ViewState
+import com.weightwatchers.ww_exercise_01.data.remote.meals.Meal
+import com.weightwatchers.ww_exercise_01.data.repositories.MealsRepository
+import com.weightwatchers.ww_exercise_01.utils.coroutines.ContextProviders
 
-class MealsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class MealsViewModel(
+        contextProvider: ContextProviders,
+        private val mealsRepository: MealsRepository
+) : BaseViewModel(contextProvider) {
+    // use data binding to bind the meals list to the recycler view
+    val mealsLiveData = MutableLiveData<List<Meal>>()
+
+    fun getMeals(){
+        launchBlock{
+            // use data binding to send albums to adapter
+            val meals = mealsRepository.getMeals()
+            mealsLiveData.postValue(meals)
+            internalState.postValue(
+                    if (meals.isNullOrEmpty()) ViewState.Empty else MealsViewState.Loaded(meals)
+            )
+        }
+    }
 }
