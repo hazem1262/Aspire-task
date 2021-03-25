@@ -1,7 +1,8 @@
-package com.weightwatchers.ww_exercise_01
+package com.weightwatchers.ww_exercise_01.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.weightwatchers.ww_exercise_01.R
 
 class MainActivity : AppCompatActivity() {
 

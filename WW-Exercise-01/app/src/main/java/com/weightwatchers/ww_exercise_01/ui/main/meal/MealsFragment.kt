@@ -1,0 +1,29 @@
+package com.weightwatchers.ww_exercise_01.ui.main.meal
+
+import androidx.lifecycle.ViewModelProvider
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.weightwatchers.ww_exercise_01.R
+
+class MealsFragment : Fragment() {
+
+    companion object {
+        fun newInstance() = MealsFragment()
+    }
+
+    private lateinit var viewModel: MealsViewModel
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.meals_fragment, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(MealsViewModel::class.java)
+    }
+
+}
