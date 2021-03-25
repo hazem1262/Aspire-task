@@ -1,6 +1,6 @@
 package com.weightwatchers.ww_exercise_01.utils.network
 
-//import com.google.gson.JsonObject
+import com.google.gson.JsonObject
 
 class ApplicationException(
         val type: ErrorType,
@@ -8,7 +8,7 @@ class ApplicationException(
         val errorMessageRes: Int? = null,
         val throwable: Throwable? = null,
         val tag:String = "",
-//        val extra: JsonObject? = null
+        val extra: JsonObject? = null
 ) : RuntimeException()
 
 sealed class ErrorType {

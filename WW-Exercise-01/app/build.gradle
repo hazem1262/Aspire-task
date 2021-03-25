@@ -51,4 +51,10 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:$koinVersion"
     implementation "org.koin:koin-androidx-ext:$koinVersion"
     implementation "org.koin:koin-androidx-fragment:$koinVersion"
+
+    // networking
+    def retrofitVersion = "2.7.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.9.1"
 }
