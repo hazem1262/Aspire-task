@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.weightwatchers.ww_exercise_01.data.remote.meals.MealsService
 import com.weightwatchers.ww_exercise_01.data.repositories.MealsRepository
+import com.weightwatchers.ww_exercise_01.utils.network.NetworkUtil.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -42,7 +43,7 @@ val retrofitModule = module {
 
     fun provideRetrofit(factory: Gson, client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://www.weightwatchers.com/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(factory))
                 .client(client)
                 .build()
