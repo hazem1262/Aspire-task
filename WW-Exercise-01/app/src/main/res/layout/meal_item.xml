@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             >
             <ImageView
-                android:id="@+id/albumPoster"
+                android:id="@+id/mealImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:imageUrl="@{meal.image}"
@@ -30,17 +30,17 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/albumTitle"
+                android:id="@+id/mealTitle"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="@{meal.title}"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="@+id/albumPoster"
+                app:layout_constraintBottom_toBottomOf="@+id/mealImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/albumPoster"
-                app:layout_constraintTop_toTopOf="@+id/albumPoster"
+                app:layout_constraintStart_toEndOf="@+id/mealImage"
+                app:layout_constraintTop_toTopOf="@+id/mealImage"
                 tools:text="No-Cook" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
