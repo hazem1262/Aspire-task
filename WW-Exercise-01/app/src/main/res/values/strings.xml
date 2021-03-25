@@ -2,4 +2,5 @@
     <string name="app_name">WW-Exercise-01</string>
     <string name="error_no_internet_connection">There is no internet connection</string>
     <string name="no_meals_found">No Meals Found</string>
+    <string name="error_unexpected">Un expected error</string>
 </resources>
