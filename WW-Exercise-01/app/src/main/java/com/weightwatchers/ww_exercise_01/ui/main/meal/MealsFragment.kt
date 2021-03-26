@@ -27,6 +27,14 @@ class MealsFragment(
         adapter.stateRestorationPolicy = StateRestorationPolicy.PREVENT_WHEN_EMPTY
         mealsRecyclerView.adapter = adapter
         viewModel.getMeals()
+        handleSwipeToRefresh()
+    }
+
+    private fun handleSwipeToRefresh() {
+        swipeToRefresh.setOnRefreshListener {
+            viewModel.getMeals()
+            swipeToRefresh.isRefreshing = false
+        }
     }
 
     override fun render(state: ViewState) {
