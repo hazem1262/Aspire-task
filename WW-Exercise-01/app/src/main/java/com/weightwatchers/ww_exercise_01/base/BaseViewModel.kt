@@ -39,6 +39,8 @@ abstract class BaseViewModel(private val contextProvider: ContextProviders) : Vi
                 ErrorType.Network.NoInternetConnection -> {}
                 else -> {}
             }
+        }else{
+            internalState.value = ViewState.Error(throwable.message)
         }
     }
 }
