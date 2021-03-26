@@ -20,11 +20,10 @@
             >
             <ImageView
                 android:id="@+id/mealImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:imageUrl="@{meal.image}"
-                android:minHeight="100dp"
-                android:minWidth="100dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
