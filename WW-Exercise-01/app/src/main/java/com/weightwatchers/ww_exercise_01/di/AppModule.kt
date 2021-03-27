@@ -13,6 +13,6 @@ val appModule = module {
 
 val fragmentModule = module{
     fragment {
-        MealsFragment(get())
+        MealsFragment()
     }
 }

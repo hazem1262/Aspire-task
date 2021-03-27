@@ -62,7 +62,7 @@ class MealsViewModelIntegrationTest{
 
     @Test
     fun `get meals change view state to LOADED if there is Albums`() {
-        viewModel.getMeals()
+        viewModel.loadMeals()
         coVerifyOrder {
             stateObserver.onChanged(ViewState.Loading)
             stateObserver.onChanged(any())

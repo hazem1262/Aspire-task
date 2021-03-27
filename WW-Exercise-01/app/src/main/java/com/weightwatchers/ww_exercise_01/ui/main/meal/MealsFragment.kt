@@ -9,11 +9,15 @@ import com.weightwatchers.ww_exercise_01.base.ViewState
 import com.weightwatchers.ww_exercise_01.data.remote.meals.Meal
 import com.weightwatchers.ww_exercise_01.databinding.MealsFragmentBinding
 import kotlinx.android.synthetic.main.meals_fragment.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class MealsFragment(
-        override val viewModel: MealsViewModel
-        ) : BaseFragment<MealsFragmentBinding,MealsViewModel>() {
+class MealsFragment : BaseFragment<MealsFragmentBinding,MealsViewModel>() {
 
+    /*
+    *  used by shared view model instead of view model to survive configuration changes
+    * https://github.com/InsertKoinIO/koin/issues/583
+    * */
+    override val viewModel: MealsViewModel by sharedViewModel()
     private val adapter = MealsAdapter(::selectMeal)
 
     override fun getLayoutId(): Int = R.layout.meals_fragment
@@ -26,13 +30,12 @@ class MealsFragment(
         * */
         adapter.stateRestorationPolicy = StateRestorationPolicy.PREVENT_WHEN_EMPTY
         mealsRecyclerView.adapter = adapter
-        viewModel.getMeals()
         handleSwipeToRefresh()
     }
 
     private fun handleSwipeToRefresh() {
         swipeToRefresh.setOnRefreshListener {
-            viewModel.getMeals()
+            viewModel.loadMeals()
             swipeToRefresh.isRefreshing = false
         }
     }

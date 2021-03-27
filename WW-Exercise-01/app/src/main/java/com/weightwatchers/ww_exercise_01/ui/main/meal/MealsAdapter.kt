@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +31,7 @@ class MealsAdapter(
 
         @JvmStatic
         @BindingAdapter("meals")
-        fun RecyclerView.bindItems(items: MutableLiveData<List<Meal>>?) {
+        fun RecyclerView.bindItems(items: LiveData<List<Meal>>?) {
             val adapter = adapter as MealsAdapter
             items?.observeForever {
                 adapter.submitList(it)

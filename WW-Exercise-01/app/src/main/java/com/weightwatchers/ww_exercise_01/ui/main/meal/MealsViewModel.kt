@@ -1,5 +1,6 @@
 package com.weightwatchers.ww_exercise_01.ui.main.meal
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.weightwatchers.ww_exercise_01.base.BaseViewModel
 import com.weightwatchers.ww_exercise_01.base.ViewState
@@ -11,10 +12,19 @@ class MealsViewModel(
         contextProvider: ContextProviders,
         private val mealsRepository: MealsRepository
 ) : BaseViewModel(contextProvider) {
-    // use data binding to bind the meals list to the recycler view
-    val mealsLiveData = MutableLiveData<List<Meal>>()
 
-    fun getMeals(){
+    private val mealsLiveData:MutableLiveData<List<Meal>> by lazy {
+        MutableLiveData<List<Meal>>().also {
+            loadMeals()
+        }
+    }
+
+    // use data binding to bind the meals list to the recycler view
+    fun getMeals():LiveData<List<Meal>>{
+        return mealsLiveData
+    }
+
+    fun loadMeals() {
         launchBlock{
             val meals = mealsRepository.getMeals()
             mealsLiveData.postValue(meals)

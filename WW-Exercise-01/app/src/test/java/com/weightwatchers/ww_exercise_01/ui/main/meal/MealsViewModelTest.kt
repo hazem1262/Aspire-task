@@ -49,9 +49,9 @@ class MealsViewModelTest{
     }
 
     @Test
-    fun `get meals change view state to LOADED if there is Albums`() {
+    fun `load meals change view state to LOADED if there is Albums`() {
         coEvery { repository.getMeals() } returns dummyMeals
-        viewModel.getMeals()
+        viewModel.loadMeals()
         coVerifyOrder {
             stateObserver.onChanged(ViewState.Loading)
             stateObserver.onChanged(MealsViewState.Loaded(dummyMeals))
@@ -59,9 +59,9 @@ class MealsViewModelTest{
     }
 
     @Test
-    fun `get meals change view state to EMPTY if there is no Albums`() {
+    fun `load meals change view state to EMPTY if there is no Albums`() {
         coEvery { repository.getMeals() } returns arrayListOf()
-        viewModel.getMeals()
+        viewModel.loadMeals()
         coVerifyOrder {
             stateObserver.onChanged(ViewState.Loading)
             stateObserver.onChanged(ViewState.Empty)
@@ -69,9 +69,9 @@ class MealsViewModelTest{
     }
 
     @Test
-    fun `get meals change view state to ERROR if repository throws an error`() {
+    fun `load meals change view state to ERROR if repository throws an error`() {
         coEvery { repository.getMeals() } throws  dummyException
-        viewModel.getMeals()
+        viewModel.loadMeals()
         coVerify {
             stateObserver.onChanged(ViewState.Error(dummyException.errorMessage, dummyException.errorMessageRes))
         }
