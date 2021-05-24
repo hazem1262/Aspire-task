@@ -34,5 +34,5 @@ with some modification to the network layer adding Kotlin couritines,
 
 ## Demo
 
-<img src="https://github.com/WW-Digital/android-exercises-hazem1262/blob/exercise_one/WW-Exercise-01/results/normal_mode.gif" width="300" height="700">&emsp;&emsp;&emsp;<img src="https://github.com/WW-Digital/android-exercises-hazem1262/blob/exercise_one/WW-Exercise-01/results/dark_mode.gif" width="300"  height="700">
+<img src="https://github.com/hazem1262/Aspire-task/blob/exercise_one/WW-Exercise-01/results/normal_mode.gif" width="300" height="700">&emsp;&emsp;&emsp;<img src="https://github.com/hazem1262/Aspire-task/blob/exercise_one/WW-Exercise-01/results/dark_mode.gif" width="300"  height="700">
 <br />
